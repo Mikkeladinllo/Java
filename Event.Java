@@ -7,34 +7,36 @@ class Event
 	private int numGuest;
 	private double price;
 
-//Constructors to set and get variables 
+	//Constructors to set and get variables 
 	
-	void Event(String eventNumber , int numGuest) {
+	void Event(String eventNumber , int numGuest) 
+	{
 		setEventNumber(eventNumber);
 		setNumGuest(numGuest);
 	}
-void Event() {
+	void Event() 
+	{
 	
-	Event("A000",0);
-}
-public void setEventNumber(String number)
-{
-	eventNumber = number;
-}
-public void setNumGuest(int Guest)
-{
-	numGuest=Guest;
-}
-public String getEventNumber() 
-{
-	return eventNumber;
-}
-public int getNumGuest()
-{
-	return numGuest;
-}
-public double getPrice()
-{
-	return price;
-}
+		Event("A000",0);
+	}
+	public void setEventNumber(String number)
+	{
+		eventNumber = number;
+	}
+	public void setNumGuest(int Guest)
+	{
+		numGuest=Guest;
+	}
+	public String getEventNumber() 
+	{
+		return eventNumber;
+	}
+	public int getNumGuest()
+	{
+		return numGuest;
+	}
+	public double getPrice()
+	{
+		return price;
+	}
 }
