@@ -1,1 +1,46 @@
+import java.util.Scanner
+EventDemo.java
 
+public class EventDemo
+   {
+       public static void main(String[] args)
+           {
+               String eventNum;
+               int guests;
+               Event[] events = new Event[3];
+               int x;
+               for(x = 0; x < events.length; ++x)
+               {
+                eventNum = getEventNumber();
+                guests = getGuests():
+                events[x] = new Event(eventNum,guests);
+                events[x] = setContactPhone(getPhone();
+                events[x] = setEventType(getType());
+               }
+               for(x = 0; x < events.length; ++x)
+               {
+                displayDetails(events[x]);
+               }
+               public static int getType()
+               {
+               int evType;
+               Scanner input = new Scanner(System.in);
+               System.out.println("Event Types are: ");
+               for(x = 0; x < Event.EVENT_TYPES.length; ++x)
+               System.out.println(" " + x + " " + EVENT_TYPES[x]);
+               System.out.print("Enter event type: ");
+               evType = input.nextInt();
+               return evType;
+               }
+               public static void displayDetails(Event e)
+               {
+               event.setEvent("1213");              
+               event.setPhone();
+               event.setGuests();
+               System.out.println("Event Name : "+event.getEvent());
+               System.out.println("Phone number : "+event.getPhone());
+               System.out.println("Number of guests : "+event.getGuests());
+               System.out.println("Is Larget event : "+event.isLargeEvent());
+               }
+           }
+   }
