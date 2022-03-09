@@ -47,11 +47,7 @@ public class Event
            this.eventNumber="A000";
        else if(eventNumber.length()==4)
        {
-           if(!Character.isAlphabetic(eventNumber.charAt(0)) ||
-               !Character.isDigit(eventNumber.charAt(1))||
-               !Character.isDigit(eventNumber.charAt(2))||
-               !Character.isDigit(eventNumber.charAt(3))              
-               )
+           if(!Character.isAlphabetic(eventNumber.charAt(0)) || (!Character.isDigit(eventNumber.charAt(1))|| (!Character.isDigit(eventNumber.charAt(2))|| (!Character.isDigit(eventNumber.charAt(3))
                this.eventNumber="A000";
            else
                this.eventNumber=eventNumber;
@@ -60,51 +56,40 @@ public class Event
            this.eventNumber=eventNumber;
    }
   
-   //Returns event number
    public String getEvent()
    {
        return eventNumber;
    }
   
-   //Returns the phone number in a format of (XXX)XXX-XXXX
    public String getPhone()
    {
-       String formattedPhoneNumber="";
-       /* append the "(" +xxx++")" three characters to
-           formattedPhoneNumber */
-       formattedPhoneNumber+="("+phone.substring(0, 3)+")";
+       String phoneNumber="";
+      
+       phoneNumber+="("+phone.substring(0, 3)+")";
 
-       //append next three characters
        formattedPhoneNumber+=phone.substring(3, 6);
-
-       //Then append the "-" sign to the formattedPhoneNumber
+       
        formattedPhoneNumber+="-";
 
-       /* Then append rest of the phoneNumber to
-           the formattedPhoneNumber */
+       phoneNumber += phone.substring(6, phone.length());
 
-       formattedPhoneNumber+=
-       phone.substring(6, phone.length());
-
-       phone=formattedPhoneNumber;
+       phone= phoneNumber;
       
        return phone;
    }
-   //Prompts user to enter number of guests
+   
    public void setGuests()
    {
        Scanner enter = new Scanner(System.in);
        System.out.println("Enter the number of guests for event ");
        guests = enter.nextInt();
    }
-   //return number of guests
+   
    public int getGuests()
    {
        return guests;
    }
-  
-   //Returns true if the event is large
-   //otherwise return false
+   
    public boolean isLargeEvent()
    {
        if (guests >= LARGE_EVENT_MAX)          
