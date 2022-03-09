@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+public class Event
+{
+   public static double pricePerGuestHigh = 35.00;
+   public static double pricePerGuestLow = 32.00;
+   public static final int LARGE_EVENT_MAX = 50;
+   public static final int EVENT_NUM_LENGTH = 4; 
+   private int guests;
+   private String eventNumber;
+   private String phone;
+  //added this stuff
+   public final String[] Event_TYPES = {"Weddings","Baptism", "Birthday", "Corporate", "Other"};
+   private int eventType;
+   public void setEventType(int code)
+   {
+    if(code < Event_TYPES.length)
+    {
+      eventType = code;
+    }
+    else
+    {
+      eventType = Event_TYPES.length - 1;
+    }
+   }
+   //added getEventType Method
+   public String getEventType()
+   {
+   return Event_TYPES[eventType];
+   
+   }
+   //changed Event method
+   public Event()
+   {
+       eventNumber="";
+       phone="";
+       guests=0;
+   }
+  //added phone method
+   public void setPhone()
+   {
+       String tempPhone="";
+       Scanner scanner=new Scanner(System.in);
+       System.out.println("Enter phone number ");
+       phone=scanner.nextLine();
+      
+       for (int i = 0; i < phone.length(); i++)
+       {
+           if(Character.isDigit(phone.charAt(i)))
+                   tempPhone+=phone.charAt(i);
+       }
+      
+       if(tempPhone.length()< 10 || tempPhone.length()>10)
+           this.phone="0000000000";
+       else
+           this.phone=tempPhone;
+      
+   }
+   
+   public String getEvent()
+   {
+       return eventNumber;
+   }
+  //added getphone method
+   public String getPhone()
+   {
+       String phoneNumber="";
+      
+       phoneNumber+="("+phone.substring(0, 3)+")";
+
+       phoneNumber+=phone.substring(3, 6)+("-");
+  
+       phoneNumber += phone.substring(6, phone.length());
+
+       phone= phoneNumber;
+      
+       return phone;
+   }
+   
+   public void setGuests()
+   {
+       Scanner enter = new Scanner(System.in);
+       System.out.println("Enter the number of guests for event ");
+       guests = enter.nextInt();
+   }
+   
+   public int getGuests()
+   {
+       return guests;
+   }
+   
+   public boolean isLargeEvent()
+   {
+       if (guests >= LARGE_EVENT_MAX)          
+               return true;          
+       else          
+               return false;      
+   }
+  
+}
