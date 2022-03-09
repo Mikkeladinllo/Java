@@ -1,0 +1,116 @@
+import java.util.Scanner;
+
+Event.java
+
+public class Event
+{
+   public static double pricePerGuestHigh = 35.00;
+   public static double pricePerGuestLow = 32.00;
+   public static final int LARGE_EVENT_MAX = 50;  
+   private int guests;
+   private String eventNumber;
+   private String phone;
+  
+   //default costructor
+   public Event()
+   {
+       eventNumber="";
+       phone="";
+       guests=0;
+   }
+  
+   //prompt to enter phone number
+   public void setPhone()
+   {
+       String tempPhone="";
+       Scanner scanner=new Scanner(System.in);
+       System.out.println("Enter phone number ");
+       phone=scanner.nextLine();
+      
+       for (int i = 0; i < phone.length(); i++)
+       {
+           if(Character.isDigit(phone.charAt(i)))
+                   tempPhone+=phone.charAt(i);
+       }
+      
+       if(tempPhone.length()< 10 || tempPhone.length()>10)
+           this.phone="0000000000";
+       else
+           this.phone=tempPhone;
+      
+   }
+  
+   //Sets event number
+   public void setEvent(String eventNumber)
+   {
+       if(eventNumber.length()<4)
+           this.eventNumber="A000";
+       else if(eventNumber.length()==4)
+       {
+           if(!Character.isAlphabetic(eventNumber.charAt(0)) ||
+               !Character.isDigit(eventNumber.charAt(1))||
+               !Character.isDigit(eventNumber.charAt(2))||
+               !Character.isDigit(eventNumber.charAt(3))              
+               )
+               this.eventNumber="A000";
+           else
+               this.eventNumber=eventNumber;
+       }
+       else
+           this.eventNumber=eventNumber;
+   }
+  
+   //Returns event number
+   public String getEvent()
+   {
+       return eventNumber;
+   }
+  
+   //Returns the phone number in a format of (XXX)XXX-XXXX
+   public String getPhone()
+   {
+       String formattedPhoneNumber="";
+       /* append the "(" +xxx++")" three characters to
+           formattedPhoneNumber */
+       formattedPhoneNumber+="("+phone.substring(0, 3)+")";
+
+       //append next three characters
+       formattedPhoneNumber+=phone.substring(3, 6);
+
+       //Then append the "-" sign to the formattedPhoneNumber
+       formattedPhoneNumber+="-";
+
+       /* Then append rest of the phoneNumber to
+           the formattedPhoneNumber */
+
+       formattedPhoneNumber+=
+       phone.substring(6, phone.length());
+
+       phone=formattedPhoneNumber;
+      
+       return phone;
+   }
+   //Prompts user to enter number of guests
+   public void setGuests()
+   {
+       Scanner enter = new Scanner(System.in);
+       System.out.println("Enter the number of guests for event ");
+       guests = enter.nextInt();
+   }
+   //return number of guests
+   public int getGuests()
+   {
+       return guests;
+   }
+  
+   //Returns true if the event is large
+   //otherwise return false
+   public boolean isLargeEvent()
+   {
+       if (guests >= LARGE_EVENT_MAX)          
+               return true;          
+       else          
+               return false;      
+   }
+  
+}
