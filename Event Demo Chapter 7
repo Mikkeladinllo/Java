@@ -1,0 +1,19 @@
+EventDemo.java
+
+public class EventDemo
+   {
+       public static void main(String[] args)
+           {
+               Event event = new Event();
+             
+               event.setEvent("1213");              
+               event.setPhone();
+               event.setGuests();
+              
+               System.out.println("Event Name : "+event.getEvent());
+               System.out.println("Phone number : "+event.getPhone());
+               System.out.println("Number of guests : "+event.getGuests());
+               System.out.println("Is Larget event : "+event.isLargeEvent());
+              
+           }
+   }
