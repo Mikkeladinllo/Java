@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class EventDemo
+   {
+       public static void main(String[] args)
+           {
+    	   Scanner scnr= new Scanner(System.in);
+            
+               //arrays
+               Event[] events = new Event[3];
+               int x;
+               //System print to display our array options 
+               System.out.println("Numbers for the event: \n1.\"Weddings\"\n2.\"Baptism\"\n3. \"Birthday\"\n4. \"Corporate\"\n5. \"Other\"");
+               //for loop to initialize to set event guest and phone number according to the event array location
+               for(x = 0; x < events.length; ++x)
+               {
+                events[x] = new Event();
+               
+                System.out.println("Enter the event number type:");
+                events[x]. setEventType(scnr.nextInt());
+                
+                events[x].setGuests();
+                events[x].setPhone();
+               }
+              //New for loop to get event information for event array location
+               for(x = 0; x < events.length; ++x) {
+                System.out.println("Guest number: "+events[x].getGuests());
+                System.out.println("Event type: "+events[x].getEventType());
+                System.out.println("Phone number: "+events[x].getPhone());
+               }
+
+           }
+   }
